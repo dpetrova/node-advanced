@@ -1,0 +1,11 @@
+{
+  "name": "webworkers-threads",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "dpetrova",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
