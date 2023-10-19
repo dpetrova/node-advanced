@@ -1,0 +1,28 @@
+# what language to be used
+language: node_js
+# what version of nodejs to be used
+node_js:
+  - "14"
+# distribution to be used as base image for the virtual machine created for us
+dist: trusty
+# services to be created for our project
+services:
+  - mongodb
+  - redis-server
+# environment variables to be used
+env:
+  - NODE_ENV=ci PORT=3000
+# what to cache for build speed up
+cache:
+  directories:
+    - node_modules
+    - client/node_modules
+# commands to be executed at the cmd
+install:
+  - npm install # install dependances
+  - npm run build # build client react app and stored in the client directory to be served by express app (see build in scripts in package.json)
+# scripts to be executed at cmd
+script:
+  - nohup npm run start & # start app server (nohup -> dont kill process if shell is closed / npm run start -> strat the server / & -> run the command in background)
+  - sleep 3 # wait for 3 secs (to wait for the server to start up)
+  - npm run test # run tests

@@ -10,7 +10,8 @@ class CustomPage {
   static async build() {
     // launch browser
     const browser = await puppeteer.launch({
-      headless: false, // the browser will open with GUI
+      headless: true, // the browser will not open with GUI
+      args: ["--no-sandbox"], // this will decrease time that tests run
     });
 
     // create a new tab
@@ -40,7 +41,7 @@ class CustomPage {
     await this.page.setCookie({ name: "session.sig", value: sig });
 
     // refresh the page
-    await this.page.goto("localhost:3000/blogs");
+    await this.page.goto("http://localhost:3000/blogs");
 
     // wait for the Logout button to be visible on the screen
     await this.page.waitFor("a[href='/auth/logout']");

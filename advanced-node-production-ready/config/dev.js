@@ -6,4 +6,5 @@ module.exports = {
   mongoURI:
     "mongodb+srv://dpetrova:r0QntXcyeYXyZ0Uk@blog-dev.lvy6lha.mongodb.net/?retryWrites=true&w=majority",
   cookieKey: "123123123",
+  redisUrl: "redis://127.0.0.1:6379",
 };

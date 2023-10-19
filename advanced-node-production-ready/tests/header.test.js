@@ -13,7 +13,7 @@ beforeEach(async () => {
   page = await Page.build();
 
   // navigate to the running app
-  await page.goto("localhost:3000");
+  await page.goto("http://localhost:3000");
 });
 
 /*
