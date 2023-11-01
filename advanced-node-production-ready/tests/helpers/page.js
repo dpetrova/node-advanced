@@ -11,7 +11,7 @@ class CustomPage {
     // launch browser
     const browser = await puppeteer.launch({
       headless: true, // the browser will not open with GUI
-      args: ["--no-sandbox"], // to decrease time that tests run
+      args: ["--no-sandbox"], // this will decrease time that tests run
     });
 
     // create a new tab

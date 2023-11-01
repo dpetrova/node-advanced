@@ -48,11 +48,12 @@ module.exports = (app) => {
 
   // use cleanCache middleware to clear Redis cached data when creating a new blog, so the new one can be fetched form DB
   app.post("/api/blogs", requireLogin, cleanCache, async (req, res) => {
-    const { title, content } = req.body;
+    const { title, content, imageUrl } = req.body;
 
     const blog = new Blog({
       title,
       content,
+      imageUrl,
       _user: req.user.id,
     });
 
